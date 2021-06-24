@@ -310,6 +310,9 @@ public final class Main {
                         JcloudsVersion.get(),
                         System.getProperty("java.version")));
 
+        /* Use up to 64 connections */
+        properties.setProperty(Constants.PROPERTY_MAX_CONNECTIONS_PER_CONTEXT, "64");
+
         ContextBuilder builder = ContextBuilder
                 .newBuilder(provider)
                 .credentials(identity, credential)
